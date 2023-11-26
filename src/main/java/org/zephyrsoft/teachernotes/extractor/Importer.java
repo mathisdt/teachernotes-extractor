@@ -13,6 +13,7 @@ import java.util.Deque;
 import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -25,6 +26,8 @@ import lombok.experimental.UtilityClass;
 
 @UtilityClass
 public class Importer {
+    private static final Pattern ENCODED_COMMA = Pattern.compile("#!");
+
     public static List<Group> read(final File teacherNotesBackup) throws IOException {
         try (Stream<String> lineStream = Files.lines(teacherNotesBackup.toPath())) {
             Deque<String> lines = lineStream
@@ -82,7 +85,7 @@ public class Importer {
                         remarks.add(r);
                         r.setTimestamp(
                             LocalDateTime.ofInstant(Instant.ofEpochMilli(Long.parseLong(remarkStrings.removeFirst())), ZoneId.of("Europe/Berlin")));
-                        r.setText(remarkStrings.removeFirst());
+                        r.setText(ENCODED_COMMA.matcher(remarkStrings.removeFirst()).replaceAll(","));
                         r.setType(RemarkType.of(remarkStrings.removeFirst()));
                     }
 
