@@ -26,7 +26,12 @@ public class Start {
             System.exit(1);
         }
 
-        File output = new File(args[0] + "_" + TIMESTAMP_FORMAT.format(LocalDateTime.now()) + ".pdf");
+        File output;
+        if (args.length >= 2) {
+            output = new File(args[1]);
+        } else {
+            output = new File(args[0] + "_" + TIMESTAMP_FORMAT.format(LocalDateTime.now()) + ".pdf");
+        }
 
         try {
             List<Group> groups = Importer.read(input);
