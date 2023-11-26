@@ -15,3 +15,18 @@ The first argument is required, it's the name of the backup file from TeacherNot
 
 The second argument is optional: you can provide a target file name. If you don't use this argument,
 the name of the source file, suffixed with a timestamp and the extension `.pdf`, is used as target.
+
+## Example wrapper script
+
+This could be used as a wrapper for the Java application (put it in the same directory as the JAR file):
+
+```
+#!/bin/sh
+if [ -z "$1" ]; then
+  echo "no TeacherNotes backup file given"
+  exit 1
+fi
+DIR=$(dirname $(readlink -f "$0"))
+PDF=$(echo "$1" | sed -e 's#.txt$##' -e 's#$#.pdf#')
+java -jar "$DIR/teachernotes-extractor*.jar" "$1" "$PDF"
+```
