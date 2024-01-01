@@ -18,9 +18,9 @@
         <version.itext>8.0.2</version.itext>
 
         <maven-enforcer-plugin.version>3.4.1</maven-enforcer-plugin.version>
-        <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
+        <maven-compiler-plugin.version>3.12.1</maven-compiler-plugin.version>
         <maven-shade-plugin.version>3.5.1</maven-shade-plugin.version>
-        <slf4j.version>2.0.9</slf4j.version>
+        <slf4j.version>2.0.10</slf4j.version>
     </properties>
 
     <dependencies>
