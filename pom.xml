@@ -14,7 +14,7 @@
 
         <main.class>org.zephyrsoft.teachernotes.extractor.Start</main.class>
 
-        <lombok.version>1.18.32</lombok.version>
+        <lombok.version>1.18.34</lombok.version>
         <version.itext>8.0.4</version.itext>
 
         <maven-enforcer-plugin.version>3.5.0</maven-enforcer-plugin.version>
