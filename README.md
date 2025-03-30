@@ -30,3 +30,11 @@ DIR=$(dirname $(readlink -f "$0"))
 PDF=$(echo "$1" | sed -e 's#.txt$##' -e 's#$#.pdf#')
 java -jar "$DIR/teachernotes-extractor*.jar" "$1" "$PDF"
 ```
+
+# Build using Earthly
+
+The CI build of this project uses [Earthly](https://docs.earthly.dev/), which in turn uses
+container virtualization (e.g. Docker or Podman). You can also run the build locally (if you
+have Earthly as well as an OCI compatible container engine installed) by executing
+`earthly +build`. This will create a container with everything needed for the build,
+create the package inside it and then copy the results to the directory `target` for you.
