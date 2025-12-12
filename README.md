@@ -1,5 +1,3 @@
-![license](https://img.shields.io/github/license/mathisdt/teachernotes-extractor.svg?style=flat) [![Build](https://github.com/mathisdt/teachernotes-extractor/actions/workflows/build.yaml/badge.svg)](https://github.com/mathisdt/teachernotes-extractor/actions) [![last released](https://img.shields.io/github/release-date/mathisdt/teachernotes-extractor.svg?label=last%20released&style=flat)](https://github.com/mathisdt/teachernotes-extractor/releases)
-
 # TeacherNotes Extractor
 
 This tool can take a backup file from [TeacherNotes](https://play.google.com/store/apps/details?id=com.apps.ips.teachernotes3) 
@@ -7,7 +5,7 @@ and convert it to a nicely formatted PDF. This way the data doesn't have to be s
 
 ## Prerequisites
 
-You need Java 21 or later to run this application. Please look [here](https://adoptium.net/de/temurin/releases/) if you don't have it yet.
+You need Java 17 or later to run this application. Please look [here](https://adoptium.net/de/temurin/releases/) if you don't have it yet.
 
 ## Usage
 
@@ -31,10 +29,7 @@ PDF=$(echo "$1" | sed -e 's#.txt$##' -e 's#$#.pdf#')
 java -jar "$DIR/teachernotes-extractor*.jar" "$1" "$PDF"
 ```
 
-# Build using Earthly
+# License
 
-The CI build of this project uses [Earthly](https://docs.earthly.dev/), which in turn uses
-container virtualization (e.g. Docker or Podman). You can also run the build locally (if you
-have Earthly as well as an OCI compatible container engine installed) by executing
-`earthly +build`. This will create a container with everything needed for the build,
-create the package inside it and then copy the results to the directory `target` for you.
+This project is licensed under GPL v3. If you submit or contribute changes, these are automatically licensed
+under GPL v3 as well. If you don't want that, please don't submit the contribution (e.g. pull request)!
